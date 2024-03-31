@@ -1,0 +1,64 @@
+---
+# Uses code to represent and toggle various repository settings.
+# Settings Documentation: https://github.com/probot/settings#usage.
+
+# Base repository settings.
+repository:
+  name: my-portfolio
+  description: A site to act as my portfolio.
+  homepage:
+  topics: website, html, css
+  private: false
+  has_issues: true
+  has_projects: false
+  has_wiki: false
+  has_downloads: false
+  default_branch: main
+  allow_squash_merge: true
+  allow_merge_commit: true
+  allow_rebase_merge: false
+  delete_branch_on_merge: true
+
+# A set of laebels created for use in the repository (e.g. on PRs, Issues).
+labels:
+  - {color: '#80C000', name: 'feature', description: 'Used for new feature additions.'}
+  - {color: '#FF8000', name: 'refactor', description: 'Used for refactoring existing code.'}
+  - {color: '#C00000', name: 'bug', description: 'Used for fixing any bug/s.'}
+  - {color: '#A3F4FF', name: 'ci/cd', description: 'Used for any improvements to CI/CD.'}
+  - {color: '#918DFF', name: 'release:major', description: 'Used to bump major for release-on-push-action.'}
+  - {color: '#918DFF', name: 'release:minor', description: 'Used to bump minor for release-on-push-action.'}
+  - {color: '#918DFF', name: 'release:patch', description: 'Used to bump patch for release-on-push-action.'}
+
+# Specific ruling for specific branches, in order to apply protection.
+# Specify the branch name or set to null to disable it.
+branches:
+  - name: main
+    protection:
+      # Required. Pull request review configuration. Set to null to disable.
+      required_pull_request_reviews:
+        # Approvals requried to merge (1-6).
+        required_approving_review_count: 1
+        # Dismiss approved reviews when new commit is pushed.
+        dismiss_stale_reviews: true
+        # Required review from code owners.
+        require_code_owner_reviews: true
+
+      # Required. All restrictions apply to admins.
+      enforce_admins: true
+
+      # Prevent merge commits from being pushed to the branch.
+      required_linear_history: true
+
+      # Prevent merge before conversations have been resolved.
+      # required_conversation_resolution: true
+
+      # Required. Require status checks to pass before merging.
+      required_status_checks:
+        # Required. If the branches checks need to be up-to-date before merging.
+        strict: true
+        # Required. The status checks needed.
+        contexts:
+          - 'lint-code-base'
+
+      # Required. Restrict who can push to this branch. Set to null to disable.
+      restrictions: null

@@ -1,0 +1,9 @@
+---
+extends: default
+
+rules:
+  # Will now warn for lines greater than 250 characters.
+  # Previously only 80 characters.
+  line-length:
+    max: 250
+    level: warning

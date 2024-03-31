@@ -1,0 +1,42 @@
+---
+name: Release
+
+# Triggers
+on: workflow_dispatch
+  # workflow_run:
+  #   workflows:
+  #     - Linter
+  #   branches:
+  #     - main
+  #   types:
+  #     - completed
+
+jobs:
+  # tag-release:
+  #   if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout Repo
+  #       id: checkout_repo
+  #       uses: actions/checkout@v4
+
+  #     - name: Tag/Release on Push
+  #       id: release_versioning
+  #       uses: rymndhng/release-on-push-action@v0.28.0
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         bump_version_scheme: patch
+  #         tag_prefix: v
+  #         use_github_release_notes: true
+  #         dry_run: true
+  #   outputs:
+  #     release_version: ${{ steps.release_versioning.outputs.version }}
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Step
+        id: test_step
+        shell: bash
+        run: echo "Test"

@@ -1,0 +1,9 @@
+---
+# MD020 no-missing-space-closed-atx
+# No space inside hashes on closed atx style heading
+# Disabling for PR template ticket format style [Context: "##GH#"]
+MD020: false
+
+# Increasing line-length limit
+MD013:
+  line_length: 250
