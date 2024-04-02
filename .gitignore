@@ -1,2 +1,6 @@
 # Files and Folders for Git to ignore
-# - todo
+
+### Node ###
+# Dependency directories
+node_modules/
+jspm_packages/

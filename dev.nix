@@ -6,6 +6,6 @@ pkgs.mkShell {
   # nativeBuildInputs is usually what you want -- tools you need to run
   nativeBuildInputs = with pkgs.buildPackages; [
     gnumake
-    nodejs_20
+    (pkgs.callPackage ./utils/bun-latest.nix {})
   ];
 }
